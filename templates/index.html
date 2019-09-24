@@ -15,8 +15,9 @@
       <!-- If you see this, hire me :) -->
     </div>
     <ul class="social-list">
-      <li><a href="https://www.linkedin.com/in/jordanjenner">LinkedIn</a></li>
-      <li><a href="https://github.com/jordanjenner">GitHub</a></li>
+    {% for social in socials %}
+      <li><a href="{{ social.url }}">{{ social.text }}</a></li>
+    {% endfor %}
     </ul>
   </div>
 </div>
