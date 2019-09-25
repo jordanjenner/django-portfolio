@@ -28,7 +28,7 @@
     <tr class="project-row">
       <td>
       {% if project.is_private == False %}
-        <a href="{{ projects.repo_url }}">{{ project.name }}</a>
+        <a href="{{ project.repo_url }}" target="_blank">{{ project.name }}</a>
       {% else %}
         {{ project.name }}
       {% endif %}
