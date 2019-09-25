@@ -13,7 +13,7 @@
       <div class="navbar background-dark">
         <ul class="nav-items">
           {% for page in pages %}
-            <li class="nav-item"><a href="/{% if page.url is not None %}{{ page.url }}{% endif %}">{{ page.text }}</a></li>
+            <li class="nav-item"><a href="/{% if page.url is not None %}{{ page.url }}/{% endif %}">{{ page.text }}</a></li>
           {% endfor %}
         </ul>
       </div>
