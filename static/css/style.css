@@ -7,6 +7,34 @@ body {
   background-size: cover;
 }
 
+td {
+  text-align: center;
+  padding: 6px;
+}
+
+th {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+tr {
+  padding: 20px
+}
+
+table {
+  background-color: #262626;
+  color: azure;
+  font-size: 20px;
+  border-collapse: collapse;
+  border-spacing:0;
+}
+
+tr:nth-child(even) {
+  background-color: #333333
+}
+
 .page-container {
   position: relative;
   min-height: 100vh;
