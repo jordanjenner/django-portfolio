@@ -7,7 +7,6 @@ from .models import Page, SocialLink
 def home_view(request, *args, **kwargs):
     pages = Page.objects.order_by('position')
     socials = SocialLink.objects.all()
-    print(pages)
 
     context = {
         "pages":    pages,
