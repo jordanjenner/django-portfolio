@@ -19,12 +19,19 @@ th {
   padding-right: 10px;
 }
 
+tbody:before {
+  content:"@";
+  display:block;
+  line-height:10px;
+  text-indent:-99999px;
+}
+
 tr {
+  background-color: #262626;
   padding: 20px
 }
 
 table {
-  background-color: #262626;
   color: azure;
   font-size: 18px;
   border-collapse: collapse;
