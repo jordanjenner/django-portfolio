@@ -17,6 +17,7 @@ th {
   padding-bottom: 6px;
   padding-left: 10px;
   padding-right: 10px;
+  background-color: #262626 !important;
 }
 
 tbody:before {
@@ -24,6 +25,10 @@ tbody:before {
   display:block;
   line-height:10px;
   text-indent:-99999px;
+}
+
+thead {
+  
 }
 
 tr {
@@ -38,7 +43,7 @@ table {
   border-spacing:0;
 }
 
-tr:nth-child(even) {
+tr:nth-child(odd) {
   background-color: #333333
 }
 
