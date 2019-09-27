@@ -25,3 +25,12 @@ def projects_view(request, *args, **kwargs):
     }
 
     return render(request, "projects.html", context)
+
+def about_view(request, *args, **kwargs):
+    pages = Page.objects.order_by('position')
+
+    context = {
+        "pages":    pages,
+    }
+
+    return render(request, "about.html", context)
