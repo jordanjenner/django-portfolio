@@ -9,7 +9,7 @@ body {
 
 td {
   text-align: center;
-  padding: 6px;
+  padding: 0px;
 }
 
 th {
@@ -143,6 +143,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: calc(100vh - 80px);
 }
 
 .about-container {
@@ -161,4 +162,81 @@ a:hover {
 
 .projects-table {
   margin: 20px 20px 8px 20px;
+}
+
+.projects-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 80px);
+}
+
+.content {
+  padding: 0 7px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.collapsible {
+  cursor: pointer;
+  margin: 0px;
+  padding: 6px;
+  border: none;
+  text-align: center;
+  outline: none;
+  
+}
+
+.active {
+  box-shadow: 0 4px 2px -2px black;
+}
+
+.collapsible-text {
+  padding: 0px;
+  margin: 0px;
+}
+
+.project-info {
+  list-style-type: none;
+  margin: 0px;
+  padding: 7px;
+}
+
+@media only screen and (max-width: 800px) {
+  th.hide-first, td.hide-first {
+    display:none;
+  }
+
+  .about-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: initial;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  th.hide-second, td.hide-second {
+    display:none;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .normal-table {
+    display: none;
+  }
+
+  .projects-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: initial;
+  }
+}
+
+@media only screen and (min-width: 450px) {
+  .mobile-table {
+    display: none;
+  }
 }
