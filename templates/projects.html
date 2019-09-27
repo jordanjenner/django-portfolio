@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Projects | {% endblock %}
+
+{% block content %}
+<div class="profile-flex">
+  <table class="projects-table">
+    <thead>
+      <tr>
+        <th>
+          Project Name
+        </th>
+        <th>
+          Date Created
+        </th>
+        <th>
+          Last Updated
+        </th>
+        <th>
+          Primary Language
+        </th>
+        <th>
+          Private/Public
+        </th>
+      </tr>
+    </thead>
+    {% for project in projects %}
+    <tr class="project-row">
+      <td>
+      {% if project.is_private == False %}
+        <a href="{{ project.repo_url }}" target="_blank">{{ project.name }}</a>
+      {% else %}
+        {{ project.name }}
+      {% endif %}
+      </td>
+      <td>
+          {{ project.creation_date|date:"d/m/Y" }}
+      </td>
+      <td>
+        {{ project.last_updated|date:"d/m/Y" }}
+      </td>
+      <td>
+        {{ project.language }}
+      </td>
+      <td>
+        {% if project.is_private == False %}
+          Public
+        {% else %}
+          Private
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,164 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(#42d4f4, #bf42f4) ;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+td {
+  text-align: center;
+  padding: 6px;
+}
+
+th {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #262626 !important;
+}
+
+tbody:before {
+  content:"@";
+  display:block;
+  line-height:10px;
+  text-indent:-99999px;
+}
+
+tr {
+  background-color: #262626;
+  padding: 20px
+}
+
+table {
+  color: azure;
+  font-size: 18px;
+  border-collapse: collapse;
+  border-spacing:0;
+}
+
+tr:nth-child(odd) {
+  background-color: #333333
+}
+
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  padding-bottom: 40px;    /* Footer height */    
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;            /* Footer height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px
+}
+
+a, a:visited {
+  color: #42d4f4;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #bf42f4;
+}
+
+.background-dark {
+  background-color: #262626
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  height: 40px;
+  width: 100%
+}
+
+.nav-items {
+  padding: 0;
+  list-style-type: none;
+  margin: auto;
+}
+
+.nav-item {
+  display: inline;
+  margin: 5px;
+}
+
+.profile-flex {
+  height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-content {
+  flex-direction: column;
+  padding: 20;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-name {
+  margin: auto;
+  font-size: 200%;
+  margin-bottom: 10px
+}
+
+.social-list {
+  padding: 0;
+  text-align: center;
+  list-style: none;
+}
+
+.profile-info {
+  width: 300px;
+  text-align: center;
+  margin-bottom: 10px
+}
+
+.profile-image {
+  margin: auto;
+  margin-bottom: 10px;
+  background-image: url("profileimage.png");
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.about-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #262626;
+  margin: 20px 20px 8px 20px;
+  padding: 20px;
+  max-width: 750px;
+  text-align: center;
+  font-size: 17px;
+  color: azure;
+}
+
+.projects-table {
+  margin: 20px 20px 8px 20px;
+}

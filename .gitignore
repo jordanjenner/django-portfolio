@@ -1,0 +1,5 @@
+
+portfolio/settings.py
+db.sqlite3
+*.pyc
+0*.py
