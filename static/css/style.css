@@ -185,7 +185,11 @@ a:hover {
   border: none;
   text-align: center;
   outline: none;
-  
+  color: #42d4f4;
+}
+
+.collapsible:hover {
+  color: #bf42f4;
 }
 
 .active {
