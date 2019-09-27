@@ -28,23 +28,23 @@
     </thead>
     {% for project in projects %}
     <tr class="project-row normal-table">
-      <td>
+      <td class="dt-field-padding">
       {% if project.is_private == False %}
         <a href="{{ project.repo_url }}" target="_blank">{{ project.name }}</a>
       {% else %}
         {{ project.name }}
       {% endif %}
       </td>
-      <td class="hide-first">
+      <td class="hide-first dt-field-padding">
           {{ project.creation_date|date:"d/m/Y" }}
       </td>
-      <td>
+      <td class="dt-field-padding">
         {{ project.last_updated|date:"d/m/Y" }}
       </td>
-      <td>
+      <td class="dt-field-padding">
         {{ project.language }}
       </td>
-      <td class="hide-second">
+      <td class="hide-second dt-field-padding">
         {% if project.is_private == False %}
           Public
         {% else %}
