@@ -27,10 +27,6 @@ tbody:before {
   text-indent:-99999px;
 }
 
-thead {
-  
-}
-
 tr {
   background-color: #262626;
   padding: 20px
@@ -83,7 +79,7 @@ a:hover {
 .navbar {
   display: flex;
   justify-content: center;
-  margin: 0;
+  margin: 0px;
   height: 40px;
   width: 100%
 }
@@ -141,4 +137,28 @@ a:hover {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.about-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #262626;
+  margin: 20px 20px 8px 20px;
+  padding: 20px;
+  max-width: 750px;
+  text-align: center;
+  font-size: 17px;
+  color: azure;
+}
+
+.projects-table {
+  margin: 20px 20px 8px 20px;
 }
