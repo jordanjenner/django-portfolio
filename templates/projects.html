@@ -5,29 +5,29 @@
 {% block title %}Projects | {% endblock %}
 
 {% block content %}
-<div class="profile-flex">
+<div class="projects-flex">
   <table class="projects-table">
     <thead>
       <tr>
-        <th>
+        <th class="">
           Project Name
         </th>
-        <th>
+        <th class="hide-first normal-table">
           Date Created
         </th>
-        <th>
+        <th class="normal-table">
           Last Updated
         </th>
-        <th>
+        <th class="normal-table">
           Primary Language
         </th>
-        <th>
+        <th class="hide-second normal-table">
           Private/Public
         </th>
       </tr>
     </thead>
     {% for project in projects %}
-    <tr class="project-row">
+    <tr class="project-row normal-table">
       <td>
       {% if project.is_private == False %}
         <a href="{{ project.repo_url }}" target="_blank">{{ project.name }}</a>
@@ -35,7 +35,7 @@
         {{ project.name }}
       {% endif %}
       </td>
-      <td>
+      <td class="hide-first">
           {{ project.creation_date|date:"d/m/Y" }}
       </td>
       <td>
@@ -44,12 +44,34 @@
       <td>
         {{ project.language }}
       </td>
-      <td>
+      <td class="hide-second">
         {% if project.is_private == False %}
           Public
         {% else %}
           Private
         {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+    {% for project in projects %}
+    <tr class="project-row mobile-table">
+      <td>
+        <p class="collapsible">{{ project.name }}</p>
+        <div class="content">
+          <ul class="project-info">
+            <li>Date created: {{ project.creation_date|date:"d/m/Y" }}</li>
+            <li>Last updated: {{ project.last_updated|date:"d/m/Y" }}</li>
+            <li>Language: {{ project.language }}</li>
+            <li>Privacy: {% if project.is_private == False %}
+                                  Public
+                                {% else %}
+                                  Private
+                                {% endif %}</li>
+            {% if project.is_private == False %}
+            <li>Link: {{ project.repo_url }}</li>
+            {% endif %}
+          </ul>
+        </div>
       </td>
     </tr>
     {% endfor %}
