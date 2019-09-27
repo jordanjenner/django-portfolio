@@ -17,10 +17,13 @@ class RepoPuller():
         self.import_data()
 
     def import_data(self):
+        repo_ids = []
+
         for repo in self.repos:
             if repo["owner"]["login"] == "jordanjenner":
                 repo_id = repo["id"]
                 name = repo["name"]
+                repo_ids.append(repo_id)
                 url = repo["svn_url"]
                 creation_date = repo["created_at"]
                 creation_date = self.date_convert(creation_date)
@@ -55,6 +58,11 @@ class RepoPuller():
                         language=language,
                         is_private=is_private
                         )
+        
+        to_delete = Project.objects.exclude(repo_id__in=repo_ids)
+
+        for project in to_delete:
+            project.delete()
 
     def date_convert(self, strdate):
         dformat = "%Y-%m-%dT%H:%M:%SZ"
