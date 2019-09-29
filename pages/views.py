@@ -34,3 +34,13 @@ def about_view(request, *args, **kwargs):
     }
 
     return render(request, "about.html", context)
+
+def contact_view(request, *args, **kwargs):
+    if request.method == "GET":
+        pages = Page.objects.order_by('position')
+
+        context = {
+            "pages":    pages,
+        }
+
+        return render(request, "contact.html", context)
