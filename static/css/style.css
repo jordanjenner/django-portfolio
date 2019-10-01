@@ -67,6 +67,36 @@ textarea {
   font-size: 15px
 }
 
+.alert {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert-close {
+  margin: 10px 12px;
+}
+
+.alert-text {
+  margin: 10px 12px;
+}
+
+.success {
+  background-color: #c3ffea;
+  color: #32d296;
+  fill: #32d296;
+}
+
+.failure {
+  background-color: #fef4f6;
+  color: #f0506e;
+  fill: #f0506e;
+}
+
 .submit {
   color: #42d4f4;
   padding: 0px;
