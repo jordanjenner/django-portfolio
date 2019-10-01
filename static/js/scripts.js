@@ -17,4 +17,10 @@ $(document).ready(function() {
       }
     });
   }
+
+  var close = document.getElementById("close-button");
+  close.addEventListener("click", function() {
+    $(this).parent().fadeOut();
+  });
+
 });
