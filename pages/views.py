@@ -3,6 +3,8 @@ from .models import Page, SocialLink
 from projects.models import Project
 from contact.models import Message
 from contact.apps import send_email
+from contact.forms import ContactForm
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 
@@ -38,25 +40,30 @@ def about_view(request, *args, **kwargs):
     return render(request, "about.html", context)
 
 def contact_view(request, *args, **kwargs):
-    pages = Page.objects.order_by('position')
-
-    context = {
-        "pages":    pages,
-    }
     if request.method == "GET":
+        pages = Page.objects.order_by('position')
+        form = ContactForm()
+
+        context = {
+            "success":  request.session.get('submit_success', None),
+            "pages":    pages,
+            "form":     form,
+        }
+
+        if request.session.get('submit_success', None) is not None:
+            del request.session['submit_success']
 
         return render(request, "contact.html", context)
 
     elif request.method == "POST":
-        email = request.POST.get('email')
-        message = request.POST.get('message')
-        if email is not None and message is not None:
-            message = Message.objects.create(
-                email=email,
-                message=message)
-
-            send_email(message.email, message.message, message.date_time)
-
-            return render(request, "contact.html", context)
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            request.session['submit_success'] = True
+            form.process()
+            return HttpResponseRedirect('/contact/')
+        else:
+            request.session['submit_success'] = False
+            return HttpResponseRedirect('/contact/')
+            
             
 
