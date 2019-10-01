@@ -6,13 +6,31 @@
 
 {% block content %}
 <div class="form-flex">
-  <h2>Contact Me</h2>
-  <p>If you need to ask any questions or just need to contact me then send me an email.</p>
   <div class="form-container">
+    {% if success == True %}
+    <div class="alert success">
+      <p class="alert-text" >
+        You sent the message. Thanks!
+      </p>
+      <svg id="close-button" class="alert-close" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 18 18">
+        <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"/>
+      </svg>
+    </div>
+    {% elif success == False %}
+    <div class="alert failure">
+        <p class="alert-text" >
+          Your message failed to send. Please try again later.
+        </p>
+        <svg id="close-button" class="alert-close" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 18 18">
+          <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"/>
+        </svg>
+      </div>
+    {% endif %}
+    <h2>Contact Me</h2>
+    <p>If you need to ask any questions or just need to contact me then send me an email.</p>
     <form action="/contact/" method="POST">
       {% csrf_token %}
-      <input type="email" name="email" id="email" placeholder="Email." required>
-      <textarea type="text" rows=7 name="message" id="message" placeholder="Message." required></textarea>
+      {{ form }}
       <input class="submit" type="submit" value="Send">
     </form>
   </div>
