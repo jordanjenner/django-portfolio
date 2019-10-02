@@ -4,5 +4,5 @@ from .apps import RepoPuller
 
 def start():
     scheduler = BackgroundScheduler()
-    scheduler.add_job(RepoPuller, 'interval', minutes=30)
+    scheduler.add_job(RepoPuller, 'interval', minutes=15)
     scheduler.start()
