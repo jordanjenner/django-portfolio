@@ -19,10 +19,13 @@
           Last Updated
         </th>
         <th class="normal-table">
-          Primary Language
+          Language
         </th>
-        <th class="hide-second normal-table">
-          Private/Public
+        <th class="normal-table">
+          Size (kB)
+        </th>
+        <th class="normal-table">
+          Live?
         </th>
       </tr>
     </thead>
@@ -44,11 +47,14 @@
       <td class="dt-field-padding">
         {{ project.language }}
       </td>
-      <td class="hide-second dt-field-padding">
-        {% if project.is_private == False %}
-          Public
+      <td class="dt-field-padding">
+        {{ project.size }}
+      </td>
+      <td class="dt-field-padding">
+        {% if project.is_live == True %}
+          <a href="{{ project.live_url }}" target="_blank">Yes! Click here.</a>
         {% else %}
-          Private
+          No
         {% endif %}
       </td>
     </tr>
@@ -62,13 +68,11 @@
             <li>Date created: {{ project.creation_date|date:"d/m/Y" }}</li>
             <li>Last updated: {{ project.last_updated|date:"d/m/Y" }}</li>
             <li>Language: {{ project.language }}</li>
-            <li>Privacy: {% if project.is_private == False %}
-                                  Public
-                                {% else %}
-                                  Private
-                                {% endif %}</li>
             {% if project.is_private == False %}
-            <li>Link: {{ project.repo_url }}</li>
+            <li>Repo Link: <a href="{{ project.repo_url }}">{{ project.repo_url }}</a></li>
+            {% endif %}
+            {% if project.is_live == True %}
+            <li>Live Link: {{ project.live_url }}</li>
             {% endif %}
           </ul>
         </div>

@@ -21,7 +21,7 @@ def home_view(request, *args, **kwargs):
 
 def projects_view(request, *args, **kwargs):
     pages = Page.objects.order_by('position')
-    projects = Project.objects.order_by('-last_updated')
+    projects = Project.objects.filter(is_private=False).order_by('-last_updated')
 
     context = {
         "pages":    pages,

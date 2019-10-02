@@ -10,7 +10,10 @@ class Project(models.Model):
     last_updated = models.DateTimeField()
     description = models.CharField(max_length=300, null=True)
     language = models.CharField(max_length=50, null=True)
+    size = models.IntegerField()
     is_private = models.BooleanField()
+    is_live = models.BooleanField(default=False)
+    live_url = models.URLField(blank=True, null=True)
 
     def __str__(self):
         return self.name
