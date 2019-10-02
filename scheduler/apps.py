@@ -32,6 +32,7 @@ class RepoPuller():
                 description = repo["description"]
                 language = repo["language"]
                 is_private = repo["private"]
+                size = int(repo["size"])
 
                 try:
                     project = Project.objects.get(repo_id=repo_id)
@@ -44,6 +45,7 @@ class RepoPuller():
                     project.description = description
                     project.language = language
                     project.is_private = is_private
+                    project.size = size
 
                     project.save()
 
@@ -56,7 +58,8 @@ class RepoPuller():
                         last_updated=last_updated,
                         description=description,
                         language=language,
-                        is_private=is_private
+                        is_private=is_private,
+                        size=size,
                         )
         
         to_delete = Project.objects.exclude(repo_id__in=repo_ids)
