@@ -1,2 +1,2 @@
 # Portfolio
- A portfolio to show me off.
+ A portfolio to display my skills as a developer.
