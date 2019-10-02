@@ -72,7 +72,7 @@
             <li>Repo Link: <a href="{{ project.repo_url }}">{{ project.repo_url }}</a></li>
             {% endif %}
             {% if project.is_live == True %}
-            <li>Live Link: {{ project.live_url }}</li>
+            <li>Live Link: <a href="{{ project.live_url }}">{{ project.live_url }}</a></li>
             {% endif %}
           </ul>
         </div>
