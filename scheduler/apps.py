@@ -4,7 +4,7 @@ from datetime import datetime
 import pytz
 from django.conf import settings
 import json
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 
 
 class SchedulerConfig(AppConfig):
@@ -76,7 +76,9 @@ class RepoPuller():
 
     def get_json(self):
         token = settings.GITHUB_TOKEN
-        url = "https://api.github.com/user/repos?access_token={}".format(token)
-        data = urlopen(url).read()
+        url = "https://api.github.com/user/repos"
+        req = Request(url)
+        req.add_header('Authorization', 'token {}'.format(token))
+        data = urlopen(req).read()
         return json.loads(data)
 
