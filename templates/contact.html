@@ -1,11 +1,7 @@
-{% extends 'base.html' %}
-
 {% load static %}
 
-{% block title %}Contact Me | {% endblock %}
-
-{% block content %}
-<div class="form-flex">
+<div id="contact" class="section-flex">
+  <div></div>
   <div class="form-container">
     {% if success == True %}
     <div class="alert success">
@@ -28,11 +24,11 @@
     {% endif %}
     <h2>Contact Me</h2>
     <p>If you need to ask any questions or just need to contact me then send me an email.</p>
-    <form action="/contact/" method="POST">
+    <form action="/" method="POST">
       {% csrf_token %}
       {{ form }}
       <input class="submit" type="submit" value="Send">
     </form>
   </div>
+  <div></div>
 </div>
-{% endblock %}
