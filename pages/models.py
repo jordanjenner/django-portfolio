@@ -6,6 +6,7 @@ class Page(models.Model):
     url = models.SlugField(null=True, blank=True)
     text = models.CharField(max_length=30)
     position = models.IntegerField()
+    show = models.BooleanField()
 
     def __str__(self):
         return self.text
