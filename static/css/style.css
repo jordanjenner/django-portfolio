@@ -109,7 +109,7 @@ textarea {
 }
 
 .submit:hover {
-  color: #bf42f4;
+  color: #9a37c5;
 }
 
 .dt-field-padding {
@@ -145,7 +145,7 @@ a, a:visited {
 }
 
 a:hover {
-  color: #bf42f4;
+  color: #9a37c5;
 }
 
 .background-dark {
@@ -389,6 +389,6 @@ a:hover {
   }
   100% {
     opacity: 0;
-    transform: translateY(46px);
+    transform: translateY(34.5px);
   }
 }
