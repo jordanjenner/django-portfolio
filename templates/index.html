@@ -10,7 +10,7 @@
   <div class="profile-content">
     <div class="profile-name">Jordan Jenner</div>
     <div class="profile-info">
-      <p>A third year university student working towards a Bachelor's Degree in Computer Networks and Security, with experience in Python, Django, PHP, SQL, HTML and CSS.</p>
+      <p>{{ pages.0.text|safe }}</p>
     </div>
     <ul class="social-list">
     {% for social in socials %}
