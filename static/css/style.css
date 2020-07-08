@@ -277,6 +277,8 @@ a:hover {
 }
 
 .collapsible {
+  display: flex;
+  align-items: center;
   cursor: pointer;
   margin: 0px;
   padding: 6px;
@@ -296,7 +298,11 @@ a:hover {
 
 .collapsible-text {
   padding: 0px;
-  margin: 0px;
+  margin: auto;
+}
+
+.icon-margin-left {
+  margin-left: 5px;
 }
 
 .project-info {
@@ -324,7 +330,7 @@ a:hover {
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 599px) {
   .normal-table {
     display: none;
   }
@@ -349,7 +355,7 @@ a:hover {
   }
 }
 
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 600px) {
   .mobile-table {
     display: none;
   }

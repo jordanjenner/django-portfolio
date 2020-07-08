@@ -58,7 +58,9 @@
     {% for project in projects %}
     <tr class="project-row mobile-table">
       <td>
-        <p class="collapsible">{{ project.name }}</p>
+        <div class="collapsible">
+          <p class="collapsible-text">{{ project.name }}</p><i class="fas fa-chevron-down icon-margin-left"></i>
+        </div>
         <div class="content">
           <ul class="project-info">
             <li>Date created: {{ project.creation_date|date:"d/m/Y" }}</li>
