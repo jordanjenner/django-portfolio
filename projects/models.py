@@ -5,6 +5,7 @@ from django.db import models
 class Project(models.Model):
     repo_id = models.IntegerField()
     repo_url = models.URLField()
+    title = models.CharField(max_length=100, null=True, blank=True)
     name = models.CharField(max_length=100)
     creation_date = models.DateTimeField()
     last_updated = models.DateTimeField()
