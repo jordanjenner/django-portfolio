@@ -214,6 +214,10 @@ a:hover {
   align-items: center;
 }
 
+a.project-info-text {
+  word-break: break-all;
+}
+
 .project-info-text:first-child {
   margin: 0 auto 0 0;
 }
@@ -308,7 +312,7 @@ a:hover {
 }
 
 .collapsible:hover {
-  color: #bf42f4;
+  color: #9a37c5;
 }
 
 .active {
