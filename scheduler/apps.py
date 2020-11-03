@@ -44,11 +44,8 @@ class RepoPuller():
                     if line.startswith('#'):
                         title = line[1:].strip()
                     if line.startswith('Live:'):
-                        print(line)
                         is_live = True
                         live_url = re.split("\(|\)", line)[1]
-                        print(live_url)
-
 
 
                 try:
