@@ -1,9 +1,15 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: azure;
   font-family: 'Roboto', sans-serif;
   margin: 0;
   background-repeat: no-repeat;
-  background-image: linear-gradient(#42d4f4, #bf42f4) ;
+  background: #7F7FD5;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+  background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
   background-attachment: fixed;
   background-size: cover;
 }
@@ -103,7 +109,7 @@ textarea {
 }
 
 .submit:hover {
-  color: #bf42f4;
+  color: #9a37c5;
 }
 
 .dt-field-padding {
@@ -111,16 +117,19 @@ textarea {
 }
 
 .page-container {
+  margin-top: 40px;
   position: relative;
-  min-height: 100vh;
+  height: calc(100vh - 40px);
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 
 .content-wrap {
-  padding-bottom: 40px;    /* Footer height */    
+  padding-bottom: 40px;    /* Footer height */
 }
 
 .footer {
-  position: absolute;
   bottom: 0;
   width: 100%;
   height: 40px;            /* Footer height */
@@ -136,7 +145,7 @@ a, a:visited {
 }
 
 a:hover {
-  color: #bf42f4;
+  color: #9a37c5;
 }
 
 .background-dark {
@@ -148,7 +157,9 @@ a:hover {
   justify-content: center;
   margin: 0px;
   height: 40px;
-  width: 100%
+  width: 100%;
+  top: 0;
+  position: fixed;
 }
 
 .nav-items {
@@ -161,17 +172,19 @@ a:hover {
   display: inline;
   margin: 5px;
 }
-
-.profile-flex {
-  height: calc(100vh - 80px);
+.section-flex {
+  height: calc(100vh - 40px);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  scroll-snap-align: start;
+  flex-direction: column;
+  margin: 0 20px;
 }
 
 .profile-content {
   flex-direction: column;
-  padding: 20;
+  padding: 0px;
   display: flex;
   justify-content: center;
 }
@@ -191,7 +204,30 @@ a:hover {
 .profile-info {
   width: 300px;
   text-align: center;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+}
+
+.project-info-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a.project-info-text {
+  word-break: break-all;
+}
+
+.project-info-text:first-child {
+  margin: 0 auto 0 0;
+}
+
+.project-info-text:not(:first-child) {
+  margin: 0 0 0 5px;
+}
+
+.project-info:nth-child(odd) {
+  background-color: inherit
 }
 
 .profile-image {
@@ -246,7 +282,7 @@ a:hover {
 
 
 .projects-table {
-  margin: 20px 20px 8px 20px;
+  margin: 20px 0px;
 }
 
 .projects-flex {
@@ -264,6 +300,8 @@ a:hover {
 }
 
 .collapsible {
+  display: flex;
+  align-items: center;
   cursor: pointer;
   margin: 0px;
   padding: 6px;
@@ -274,7 +312,7 @@ a:hover {
 }
 
 .collapsible:hover {
-  color: #bf42f4;
+  color: #9a37c5;
 }
 
 .active {
@@ -283,7 +321,11 @@ a:hover {
 
 .collapsible-text {
   padding: 0px;
-  margin: 0px;
+  margin: auto;
+}
+
+.icon-margin-left {
+  margin-left: 5px;
 }
 
 .project-info {
@@ -311,7 +353,7 @@ a:hover {
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 599px) {
   .normal-table {
     display: none;
   }
@@ -329,10 +371,57 @@ a:hover {
     max-width: calc(100vw -20px);
     color: azure;
   }
+  
 }
 
-@media only screen and (min-width: 450px) {
+@media (orientation:portrait) {
+  body {
+    background: #7F7FD5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #91EAE4, #86A8E7, #7F7FD5);
+    background: linear-gradient(to bottom, #91EAE4, #86A8E7, #7F7FD5);
+  }
+}
+
+@media only screen and (min-width: 600px) {
   .mobile-table {
     display: none;
+  }
+}
+
+.icon-scroll, .icon-scroll:before {
+  position: absolute;
+  left: 50%;
+}
+
+.icon-scroll {
+  width: 30px;
+  height: 52.5px;
+  margin-left: -15px;
+  margin-top: -26.25px;
+  box-shadow: inset 0 0 0 1px #fff;
+  border-radius: 18.75px;
+  bottom: 30px;
+}
+
+.icon-scroll:before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  margin-left: -3px;
+  top: 6px;
+  border-radius: 3px;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-name: scroll;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(34.5px);
   }
 }

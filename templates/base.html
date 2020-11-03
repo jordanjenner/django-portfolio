@@ -8,22 +8,22 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <script src="/static/js/jquery-3.4.1.min.js"></script>
   <script src="/static/js/scripts.js"></script>
+  <script src="https://kit.fontawesome.com/19b40e2ca7.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="page-container">
-    <div class="content-wrap">
       <div class="navbar background-dark">
         <ul class="nav-items">
           {% for page in pages %}
-            <li class="nav-item"><a href="/{% if page.url is not None %}{{ page.url }}/{% endif %}">{{ page.text }}</a></li>
+            <li class="nav-item"><a href="#{% if page.url is not None %}{{ page.url }}{% endif %}">{{ page.name }}</a></li>
           {% endfor %}
         </ul>
       </div>
+    <div>
       {% block content %}
   
       {% endblock %}
     </div>
-    <div class="footer">© Jordan Jenner {% now 'Y' %}</div>
   </div>
 </body>
 </html>

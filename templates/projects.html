@@ -1,16 +1,15 @@
-{% extends 'base.html' %}
-
 {% load static %}
 
-{% block title %}Projects | {% endblock %}
-
-{% block content %}
-<div class="projects-flex">
+<div id="projects" class="section-flex">
+  <div></div>
   <table class="projects-table">
     <thead>
       <tr>
-        <th class="">
+        <th class="normal-table">
           Project Name
+        </th>
+        <th class="mobile-table">
+          Projects
         </th>
         <th class="hide-first normal-table">
           Date Created
@@ -62,23 +61,40 @@
     {% for project in projects %}
     <tr class="project-row mobile-table">
       <td>
-        <p class="collapsible">{{ project.name }}</p>
+        <div class="collapsible">
+          <p class="collapsible-text">{{ project.name }}</p><i class="fas fa-chevron-down icon-margin-left"></i>
+        </div>
         <div class="content">
-          <ul class="project-info">
-            <li>Date created: {{ project.creation_date|date:"d/m/Y" }}</li>
-            <li>Last updated: {{ project.last_updated|date:"d/m/Y" }}</li>
-            <li>Language: {{ project.language }}</li>
+          <div class="project-info">
+            <div class="project-info-row">
+              <p class="project-info-text">Created</p>
+              <p class="project-info-text">{{ project.creation_date|date:"d/m/Y" }}</p>
+            </div>
+            <div class="project-info-row">
+              <p class="project-info-text">Last updated</p>
+              <p class="project-info-text">{{ project.creation_date|date:"d/m/Y" }}</p>
+            </div>
+            <div class="project-info-row">
+              <p class="project-info-text">Language</p>
+              <p class="project-info-text">{{ project.language }}</p>
+            </div>
             {% if project.is_private == False %}
-            <li>Repo Link: <a href="{{ project.repo_url }}">{{ project.repo_url }}</a></li>
+            <div class="project-info-row">
+              <p class="project-info-text">Repo</p>
+              <a class="project-info-text" href="{{ project.repo_url }}">{{ project.repo_url }}</a>
+            </div>
             {% endif %}
             {% if project.is_live == True %}
-            <li>Live Link: <a href="{{ project.live_url }}">{{ project.live_url }}</a></li>
+            <div class="project-info-row">
+              <p class="project-info-text">Live Link</p>
+              <p class="project-info-text"><a href="{{ project.live_url }}">{{ project.live_url }}</a></p>
+            </div>
             {% endif %}
-          </ul>
+          </div>
         </div>
       </td>
     </tr>
     {% endfor %}
   </table>
+  <div></div>
 </div>
-{% endblock %}

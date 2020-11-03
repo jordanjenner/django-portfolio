@@ -10,60 +10,31 @@ from django.http import HttpResponseRedirect
 
 
 def home_view(request, *args, **kwargs):
-    pages = Page.objects.order_by('position')
-    socials = SocialLink.objects.all()
-
-    context = {
-        "pages":    pages,
-        "socials":  socials,
-    }
-    return render(request, "index.html", context)
-
-def projects_view(request, *args, **kwargs):
-    pages = Page.objects.order_by('position')
-    projects = Project.objects.filter(is_private=False).order_by('-last_updated')
-
-    context = {
-        "pages":    pages,
-        "projects": projects,
-    }
-
-    return render(request, "projects.html", context)
-
-def about_view(request, *args, **kwargs):
-    pages = Page.objects.order_by('position')
-
-    context = {
-        "pages":    pages,
-    }
-
-    return render(request, "about.html", context)
-
-def contact_view(request, *args, **kwargs):
     if request.method == "GET":
-        pages = Page.objects.order_by('position')
+        pages = Page.objects.filter(show=True).order_by('position')
+        socials = SocialLink.objects.all()
+        projects = Project.objects.filter(is_private=False).order_by('-last_updated')
         form = ContactForm()
 
         context = {
-            "success":  request.session.get('submit_success', None),
             "pages":    pages,
+            "socials":  socials,
+            "projects": projects,
             "form":     form,
         }
 
         if request.session.get('submit_success', None) is not None:
+            context["success"] = request.session.get('submit_success')
             del request.session['submit_success']
 
-        return render(request, "contact.html", context)
+        return render(request, "index.html", context)
 
     elif request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
             request.session['submit_success'] = True
             form.process()
-            return HttpResponseRedirect('/contact/')
+            return HttpResponseRedirect('/#contact')
         else:
             request.session['submit_success'] = False
-            return HttpResponseRedirect('/contact/')
-            
-            
-
+            return HttpResponseRedirect('/#contact')

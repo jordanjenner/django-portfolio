@@ -1,32 +1,9 @@
-{% extends 'base.html' %}
-
 {% load static %}
-
-{% block title %}About | {% endblock %}
-
-{% block content %}
-<div class="about-flex">
+<div id="about" class="section-flex">
+  <div></div>
   <div class="about-container">
     <H2>About</H2>
-    <p>
-      First of all I want to mention that I will keep this page on topic and not just a boring life story.
-    </p>
-    <p>
-      My first introduction to programming was during college but I don't think it counts considering it was Game Maker, 
-      so my actual first introduction to programming was during my first year of university where we had a module based on Python.
-      Before this I really wasn't a fan of programming which is why I decided to study Computer Networks and Security, 
-      I was very wrong on how much I would enjoy each of those subjects. I ended up having a passion for programming and also hating networks, 
-      although I do still like the subject of security very much.
-    </p>
-    <p>
-      Since starting that python module that I thought I was going to hate I have doubled down on programming, 
-      I have learnt a decent amount of PHP as well as SQL but I still learn new things everytime I use them. 
-      I have also played about with front-end web development but I have a lot to improve on when it comes to JavaScript which is a language I intend to learn at some point when I have time.
-      I also have plans to learn C (or one of its variants) as well as OpenGL as I feel it would be extremely satisfying to create something with just as it is with web development.
-    </p>
-
+    {{ pages.2.text|safe }}
   </div>
-
+  <div></div>
 </div>
-
-{% endblock %}
