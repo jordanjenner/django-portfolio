@@ -32,9 +32,19 @@
     <tr class="project-row normal-table">
       <td class="dt-field-padding">
       {% if project.is_private == False %}
-        <a href="{{ project.repo_url }}" target="_blank">{{ project.name }}</a>
+        <a href="{{ project.repo_url }}" target="_blank">
+          {% if not project.title %}
+            {{ project.name }}
+          {% else %}
+            {{ project.title }}
+          {% endif %}
+        </a>
       {% else %}
-        {{ project.name }}
+        {% if not project.title %}
+          {{ project.name }}
+        {% else %}
+          {{ project.title }}
+        {% endif %}
       {% endif %}
       </td>
       <td class="hide-first dt-field-padding">
@@ -62,7 +72,14 @@
     <tr class="project-row mobile-table">
       <td>
         <div class="collapsible">
-          <p class="collapsible-text">{{ project.name }}</p><i class="fas fa-chevron-down icon-margin-left"></i>
+          <p class="collapsible-text">
+            {% if not project.title %}
+              {{ project.name }}
+            {% else %}
+              {{ project.title }}
+            {% endif %}
+          </p>
+          <i class="fas fa-chevron-down icon-margin-left"></i>
         </div>
         <div class="content">
           <div class="project-info">
